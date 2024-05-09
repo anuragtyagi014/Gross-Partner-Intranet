@@ -1,0 +1,50 @@
+/*==========  Path  =============*/
+
+/*
+Example:
+$img-path:		'../img/';
+$font-path:		'../fonts/';
+*/
+
+/*==========  Main colors  =============*/
+
+/*
+Example:
+darken($color, 10%)
+lighten($color, 10%)
+*/
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-red: #FF3855;
+$color-grey: #EDEDED; /* eg. module background */
+$color-grey2: #DDDDDD; /* eg. footer text, text on bordeaux background */
+$color-grey3: #C6C6C6; /* eg. menu inactive icon fill and border color */
+$color-grey4: #555555; /* eg. border of input field */
+$color-grey5: #353A37;
+$color-grey6: #E4E4E4;
+$color-green: #00B482;
+
+$color-events: #64CDCD;
+$color-birthdays: #FC1D1D;
+$color-appointments: #F4B40B;
+
+
+/*==========  Font-family  =============*/
+/*
+Example:
+$font-primary: 'Cera-Pro';
+*/
+
+
+
+/*==========  Project : media queries breakpoints  =============*/
+
+
+
+/*==========  Screen breaks  =============*/
+$xxl: 1475px;
+$xl: 1199px;
+$lg: 1024px;
+$md: 767px;
+$sm: 580px;
+$xs: 380px;

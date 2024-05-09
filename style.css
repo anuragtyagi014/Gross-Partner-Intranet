@@ -1,0 +1,22 @@
+/*
+Theme Name: gross-partner-intranet
+Text Domain: gross-partner-intranet
+Version: 1.0
+Requires at least: 4.7
+Requires PHP: 7.3
+Description: Design by acre, programming by Softloop GmbH
+Tags: bootstrap, scss, scroll magic
+Author: Softloop GmbH
+Author URI: https://www.softloop.com/
+*/
+
+/*--calander-page-css--*/
+.page-title .text p {
+    letter-spacing: 0px;
+    color: #00B482;
+    text-transform: uppercase;
+    opacity: 1;
+    font-size: 64px;
+    line-height: 62px;
+}
+/*--end--*/

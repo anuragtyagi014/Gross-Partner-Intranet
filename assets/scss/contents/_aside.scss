@@ -1,0 +1,132 @@
+aside {
+	height: 100%;
+	.wrapper {
+		padding: 0;
+		position: sticky;
+		top: 0;
+	}
+
+	.calendar-wrapper {
+		background-color: $color-grey;
+	}
+
+	.mec-calendar {
+		border: 0 none;
+		box-shadow: none;
+		.mec-calendar-topsec,
+		.mec-calendar-events-side {
+			display: block;
+		}
+		.mec-calendar-events-side,
+		.mec-calendar-side {
+			padding: 20px;
+		}
+
+		.mec-calendar-topsec {
+			background: none;
+		}
+
+		.mec-event-footer {
+			display: none;
+		}
+		.mec-calendar-events-side {
+			border: 0 none;
+		}
+		.mec-has-event {
+			a {
+				color: $color-green;
+			}
+		}
+	}
+
+	.mec-wrap {
+
+		.mec-totalcal-box {
+			display: none;
+		}
+		&.mec-sm959 {
+			.mec-calendar {
+				&:not(.mec-event-calendar-classic) {
+					&:not(.mec-calendar-weekly) {
+						dt {
+							width: 30px;
+							height: 30px;
+							line-height: 30px;
+						}
+						.mec-calendar-header {
+							width: 100%;
+							margin-top: 0;
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mec-event-list-classic {
+		padding: 0 20px;
+		.mec-event-date {
+			/* white-space: nowrap; */
+			width: 87px;
+			span {
+				margin: 0;
+			}
+		}
+		.mec-event-article {
+			padding: 12px;
+			margin: 0;
+			position: relative;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+			margin-bottom: -1px;
+			flex-wrap: wrap;
+			.event-color {
+				margin: 0;
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 12px;
+				bottom: 12px;
+				width: 5px;
+				height: auto;
+				border-radius: 0;
+			}
+		}
+		.mec-event-loc-place {
+			display: none;
+		}
+	}
+
+	.mec-month-side {
+		.mec-monthly-contents {
+			position: relative;
+			width: 100% !important;
+			.event-color {
+				display: block;
+				position: absolute;
+				width: 5px;
+				border-radius: 0;
+				left: -14px;
+				top: 0;
+				bottom: 0;
+				height: auto;
+				margin-left: 0;
+			}
+		}
+		.mec-calendar-events-sec {
+			&.has-events {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+
+
+	@media (max-width: 767px) {
+		.calendar-wrapper {
+			margin-top: 14px;
+		}
+	}
+}

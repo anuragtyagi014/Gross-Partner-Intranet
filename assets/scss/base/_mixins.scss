@@ -1,0 +1,226 @@
+/*
+-moz-box-
+-webkit-
+-ms-
+*/
+
+/* none | manual | auto */
+@mixin hyphens($value: auto) {
+	-ms-hyphens: $value;
+	-moz-hyphens: $value;
+	-webkit-hyphens: $value;
+	hyphens: $value;
+}
+
+@mixin font-feature ($font, $type) {
+	font-family: $font;
+	@if $type == 'zero' {
+		font-variant-numeric: slashed-zero;
+		font-feature-settings: 'tnum';
+		-webkit-font-feature-settings: 'tnum';
+		-moz-font-feature-settings: 'tnum';
+	}
+}
+
+@mixin fs_rem ($pixel_number: $fs) {
+	font-size: ($pixel_number / $fs) + rem;
+}
+
+@mixin text-shadow($value) {
+	-webkit-text-shadow: $value;
+	-moz-text-shadow: $value;
+	text-shadow: $value;
+}
+
+@mixin box-shadow($value) {
+	-webkit-box-shadow: $value;
+	-moz-box-shadow: $value;
+	box-shadow: $value;
+}
+
+@mixin border-radius($radius: 0) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+/* display: flex / inline-flex */
+@mixin flexbox($import: '') {
+	@if $import == 'import' {
+		display: -webkit-box !important;
+		display: -moz-box !important;
+		display: -ms-flexbox !important;
+		display: -webkit-flex !important;
+		display: flex !important;
+	} @else {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+}
+
+/* flex-direction: nowrap, wrap, wrap-reverse */
+@mixin flex-wrap($value: wrap) {
+	-webkit-flex-wrap: $value;
+	flex-wrap: $value;
+}
+
+/* flex-direction: row, row-reverse, column, column-reverse, initial, inherit */
+@mixin flex-direction($value: column) {
+	-webkit-flex-direction: $value;
+	flex-direction: $value;
+}
+
+@mixin flex($values) {
+	-webkit-box-flex: $values;
+	-moz-box-flex:  $values;
+	-webkit-flex:  $values;
+	-ms-flex:  $values;
+	flex:  $values;
+}
+
+@mixin order($val) {
+	-webkit-box-ordinal-group: $val;
+	-moz-box-ordinal-group: $val;
+	-ms-flex-order: $val;
+	-webkit-order: $val;
+	order: $val;
+}
+
+/* justify-content: flex-start, flex-end, center, space-between, space-around, initial, inherit */
+@mixin justify-content($position: center) {
+	-webkit-justify-content: $position;
+	justify-content: $position;
+}
+
+/* align-items: flex-start, flex-end, center, stretch, baseline, initial, inherit */
+@mixin align-items($position: center) {
+	-webkit-align-items: $position;
+	align-items: $position;
+}
+
+
+/// Mixin printing a linear-gradient <<
+
+@function convert-angle($value, $unit) {
+	$convertable-units: deg grad turn rad;
+	$conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+	@if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+		@return $value
+		/ nth($conversion-factors, index($convertable-units, unit($value)))
+		* nth($conversion-factors, index($convertable-units, $unit));
+	}
+
+	@warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
+}
+
+@function is-direction($value) {
+	$is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+	$is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+	@return $is-direction or $is-angle;
+}
+
+@function legacy-direction($value) {
+	@if is-direction($value) == false {
+		@warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
+	}
+
+	$conversion-map: (
+		to top          : bottom,
+		to top right    : bottom left,
+		to right top    : left bottom,
+		to right        : left,
+		to bottom right : top left,
+		to right bottom : left top,
+		to bottom       : top,
+		to bottom left  : top right,
+		to left bottom  : right top,
+		to left         : right,
+		to left top     : right bottom,
+		to top left     : bottom right
+		);
+
+	@if map-has-key($conversion-map, $value) {
+		@return map-get($conversion-map, $value);
+	}
+
+	@return 90deg - convert-angle($value, 'deg');
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$color-stops: ($direction, $color-stops);
+		$direction: 180deg;
+	}
+
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+	background: linear-gradient($direction, $color-stops);
+}
+
+/// Mixin printing a linear-gradient >>
+
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	-ms-transform: $value;
+	transform: $value;
+}
+
+// Start position for transformations: X(px/%), Y(px/%)
+// by default: center center 0px
+@mixin transform-origin($value: left top 0px) {
+	-webkit-transform-origin: $value;
+	-moz-transform-origin: $value;
+	-ms-transform-origin: $value;
+	transform-origin: $value;
+}
+
+@mixin transition($value...) {
+	-webkit-transition: $value;
+	transition: $value;
+}
+
+@mixin transition-transform($value) {
+	-webkit-transition: -webkit-transform $value;
+	-moz-transition: -moz-transform $value;
+	-ms-transition: -ms-transform $value;
+	transition: transform $value;
+}
+
+@mixin transition-duration($value) {
+	-webkit-transition-duration: $value;
+	-moz-transition-duration: $value;
+	-ms-transition-duration: $value;
+	transition-duration: $value;
+}
+
+@mixin transition-delay($value: .5s) {
+	-webkit-transition-delay: $value;
+	-moz-transition-delay: $value;
+	-o-transition-delay: $value;
+	transition-delay: $value;
+}
+
+@mixin placeholder($color: $c-b) {
+	&::placeholder {
+		color: $color;
+	}
+}
+
+@mixin clearfix() {
+	&:after {
+		//position: relative;
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+@mixin animation-duration($value: 1s) {
+	-webkit-animation-duration: $value;
+	animation-duration: $value;
+}

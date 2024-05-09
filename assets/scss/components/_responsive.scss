@@ -1,0 +1,339 @@
+.pb-50 {
+	padding-bottom: 50px;
+}
+.pt-80 {
+	padding-top: 80px;
+}
+.pb-80 {
+	padding-bottom: 80px;
+}
+.pt-100 {
+	padding-top: 100px;
+}
+.pb-100 {
+	padding-bottom: 100px;
+}
+.pt-140 {
+	padding-top: 140px;
+}
+.pb-140 {
+	padding-bottom: 140px;
+}
+.pt-150 {
+	padding-top: 150px;
+}
+.pb-150 {
+	padding-bottom: 150px;
+}
+.pt-200 {
+	padding-top: 200px;
+}
+.pb-200 {
+	padding-bottom: 200px;
+}
+.pl-80 {
+	padding-left: 80px;
+}
+.pr-80 {
+	padding-right: 80px;
+}
+.section-padding {
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+.mt-150 {
+	margin-top: 150px;
+}
+.mb-55 {
+	margin-bottom: 55px;
+}
+.mb-60 {
+	margin-bottom: 60px;
+}
+.mb-75 {
+	margin-bottom: 75px;
+}
+.mb-80 {
+	margin-bottom: 80px;
+}
+.mb-100 {
+	margin-bottom: 100px;
+}
+.mb-110 {
+	margin-bottom: 110px;
+}
+
+//.headline-$ - responsive code for titles and texts
+.headline-18 {
+	font-size: 1.8rem;
+}
+.headline-22 {
+	font-size: 2.2rem;
+}
+.headline-24 {
+	font-size: 2.4rem;
+}
+.headline-26 {
+	font-size: 2.6rem;
+}
+.headline-40 {
+	font-size: 4rem;
+}
+.headline-44 {
+	font-size: 4.4rem;
+}
+
+@media (max-width:1439px) {
+	.pt-100 {
+		padding-top: 80px;
+	}
+	.pt-200 {
+		padding-top: 160px;
+	}
+	.pb-100 {
+		padding-bottom: 80px;
+	}
+	.pt-140 {
+		padding-top: 100px;
+	}
+	.pt-150 {
+		padding-top: 100px;
+	}
+	.pb-140 {
+		padding-bottom: 100px;
+	}
+	.mt-150 {
+		margin-top: 100px;
+	}
+	.mb-55 {
+		margin-bottom: 45px;
+	}
+	.mb-60 {
+		margin-bottom: 50px;
+	}
+	.mb-75 {
+		margin-bottom: 55px;
+	}
+	.mb-80 {
+		margin-bottom: 60px;
+	}
+	.mb-100 {
+		margin-bottom: 80px;
+	}
+	.mb-110 {
+		margin-bottom: 90px;
+	}
+	.headline-40 {
+		font-size: 3.8rem;
+	}
+	.headline-44 {
+		font-size: 4rem;
+	}
+}
+
+@media (max-width:1199px) {
+	.pb-50 {
+		padding-bottom: 30px;
+	}
+	.pt-80 {
+		padding-top: 40px;
+	}
+	.pb-80 {
+		padding-bottom: 40px;
+	}
+	.pt-200 {
+		padding-top: 100px;
+	}
+	.pt-100 {
+		padding-top: 50px;
+	}
+	.pb-100 {
+		padding-bottom: 50px;
+	}
+	.pt-140 {
+		padding-top: 75px;
+	}
+	.pt-150 {
+		padding-top: 75px;
+	}
+	.pb-140 {
+		padding-bottom: 75px;
+	}
+	.mt-150 {
+		margin-top: 75px;
+	}
+	.mb-55 {
+		margin-bottom: 35px;
+	}
+	.mb-60 {
+		margin-bottom: 40px;
+	}
+	.mb-75 {
+		margin-bottom: 45px;
+	}
+	.mb-80 {
+		margin-bottom: 50px;
+	}
+	.mb-100 {
+		margin-bottom: 70px;
+	}
+	.mb-110 {
+		margin-bottom: 80px;
+	}
+	.headline-18 {
+		font-size: 2rem;
+	}
+	.headline-22 {
+		font-size: 2rem;
+	}
+	.headline-24 {
+		font-size: 2rem;
+	}
+	.headline-26 {
+		font-size: 2.2rem;
+	}
+	.headline-40 {
+		font-size: 2.4rem;
+	}
+	.headline-44 {
+		font-size: 2.6rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.section-padding {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.pl-80 {
+		padding-left: 25px;
+	}
+	.pr-80 {
+		padding-right: 25px;
+	}
+	.pt-150 {
+		padding-top: 70px;
+	}
+	.pt-140 {
+		padding-top: 50px;
+	}
+	.pt-200 {
+		padding-top: 70px;
+	}
+	.pb-140 {
+		padding-bottom: 50px;
+	}
+	.mt-150 {
+		margin-top: 50px;
+	}
+	.mb-55 {
+		margin-bottom: 20px;
+	}
+	.mb-60 {
+		margin-bottom: 25px;
+	}
+	.mb-75 {
+		margin-bottom: 30px;
+	}
+	.mb-80 {
+		margin-bottom: 35px;
+	}
+	.mb-100 {
+		margin-bottom: 50px;
+	}
+	.mb-110 {
+		margin-bottom: 50px;
+	}
+	.headline-18 {
+		font-size: 1.6rem;
+	}
+	.headline-22 {
+		font-size: 1.8rem;
+	}
+	.headline-24 {
+		font-size: 1.8rem;
+	}
+	.headline-26 {
+		font-size: 1.8rem;
+	}
+	.headline-40 {
+		font-size: 2.4rem;
+	}
+	.headline-44 {
+		font-size: 2.4rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.section-padding {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.pb-50 {
+		padding-bottom: 15px;
+	}
+	.pt-80 {
+		padding-top: 15px;
+	}
+	.pb-80 {
+		padding-bottom: 15px;
+	}
+	.pt-100 {
+		padding-top: 25px;
+	}
+	.pb-100 {
+		padding-bottom: 25px;
+	}
+	.pt-140 {
+		padding-top: 30px;
+	}
+	.pt-200 {
+		padding-top: 40px;
+	}
+	.pb-140 {
+		padding-bottom: 30px;
+	}
+	.pl-80 {
+		padding-left: 10px;
+	}
+	.pr-80 {
+		padding-right: 10px;
+	}
+	.mt-150 {
+		margin-top: 30px;
+	}
+	.mb-55 {
+		margin-bottom: 15px;
+	}
+	.mb-60 {
+		margin-bottom: 20px;
+	}
+	.mb-75 {
+		margin-bottom: 25px;
+	}
+	.mb-80 {
+		margin-bottom: 30px;
+	}
+	.mb-100 {
+		margin-bottom: 25px;
+	}
+	.mb-110 {
+		margin-bottom: 35px;
+	}
+	.headline-22 {
+		font-size: 1.6rem;
+	}
+	.headline-24 {
+		font-size: 1.6rem;
+	}
+	.headline-26 {
+		font-size: 1.6rem;
+	}
+	.headline-40 {
+		font-size: 2.4rem;
+	}
+	.headline-44 {
+		font-size: 2.4rem;
+	}
+}

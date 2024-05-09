@@ -1,0 +1,38 @@
+.block-google-search {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid $color-grey3;
+	.field {
+		text-align: right;
+		padding-left: 20px;
+	}
+	input {
+		&[type="text"],
+		&[type="search"] {
+			width: 50%;
+			border: 1px solid $color-grey4;
+			border-radius: 20px;
+			height: 40px;
+			font-size: 1.1rem;
+			letter-spacing: 0.02em;
+			line-height: 1.1818;
+			font-weight: 700;
+			text-transform: uppercase;
+			text-align: center;
+			color: $color-grey5;
+			display: inline-block;
+			&::-webkit-input-placeholder {
+				color: $color-grey5;
+			}
+			&::-moz-placeholder {
+				color: $color-grey5;
+			}
+			&:-ms-input-placeholder {
+				color: $color-grey5;
+			}
+			&:-moz-placeholder {
+				color: $color-grey5;
+			}
+		}
+	}
+}

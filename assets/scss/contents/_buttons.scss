@@ -1,0 +1,22 @@
+/*========= Buttons ==========*/
+.btn,
+.wpcf7-submit,
+.button,
+button {
+	display: inline-block;
+	font-size: 2.4rem;
+	line-height: 1.4166;
+	font-weight: 350;
+	position: relative;
+	color: $color-red;
+	@include transition(all .3s ease-out);
+
+	@media only screen and (max-width: 991px) {
+
+	}
+
+	@media only screen and (max-width: 767px) {
+	}
+
+}
+

@@ -1,0 +1,102 @@
+header {
+	font-size: 1.1rem;
+	line-height: 1.1818;
+	height: 100%;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	font-weight: 700;
+	@include transition(all 0.5s ease);
+
+	.wrapper {
+		padding: 0;
+		position: sticky;
+		top: 20px;
+	}
+
+	.logo {
+		width: 64px;
+		margin: 0 auto 47px auto;
+		a {
+			display: block;
+		}
+		svg,
+		img {
+			display: block;
+		}
+	}
+
+	nav {
+		text-align: center;
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li {
+				display: block;
+				margin: 0 0 30px 0;
+				a {
+					display: block;
+					padding-bottom: 16px;
+					@include transition(none);
+					.icon {
+						display: block;
+						margin-bottom: 7px;
+					}
+					&:hover {
+						color: $color-green;
+					}
+				}
+				&.home {
+					display: none;
+				}
+				&.current-menu-item {
+					a {
+						color: $color-green;
+					}
+				}
+				&:not(.current-menu-item) {
+					a {
+						&:not(:hover) {
+							.icon {
+								svg {
+									path {
+										&[fill] {
+											fill: $color-grey3;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.small-header {
+		
+	}
+
+	.navigation {
+		@include transition(all 0.5s ease);
+	}
+
+	.viewport-scrolled &,
+	.no-stage & {
+		background-color: $color-grey;
+		box-shadow: 0 1px 2px rgba(0,0,0,.16);
+		.navigation {
+			opacity: 1;
+			@include transform(translate3d(0,0%,0));
+		}
+	}
+
+	@media only screen and (max-width: 991px) {
+
+	}
+
+	@media only screen and (max-width: 767px) {
+		margin: 0 -10px;
+	}
+}
