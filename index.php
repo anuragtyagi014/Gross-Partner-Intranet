@@ -28,4 +28,5 @@ if (is_single()) {
 }
 echo '</div>';
 
+
 get_footer();

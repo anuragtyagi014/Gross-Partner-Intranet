@@ -17,6 +17,7 @@ if(function_exists('icl_get_languages')){
 }
 */
 
+
 $companies = get_field('company', 'option');
 $social_media = get_field('social-media-icons', 'option');
 $footer_menu_html = get_website_menu('Footer');
