@@ -15,6 +15,7 @@ function website_textdomain()
 	return 'gross-partner-intranet';
 }
 
+
 function website_setup()
 {
 	load_theme_textdomain(website_textdomain(), get_template_directory() . '/languages');
@@ -396,25 +397,26 @@ add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
 
-function filterFiles($slug){
+function filterFiles($slug)
+{
 	global $wpdb;
-	$tableName = $wpdb->prefix.'nextcloud_press_reviews';
-	$query = 'SELECT * FROM '.$tableName.' WHERE slug = \''.$slug.'\' ORDER BY slug DESC LIMIT 1';
+	$tableName = $wpdb->prefix . 'nextcloud_press_reviews';
+	$query = 'SELECT * FROM ' . $tableName . ' WHERE slug = \'' . $slug . '\' ORDER BY slug DESC LIMIT 1';
 	$results = $wpdb->get_results($query, ARRAY_A);
 	$get_update = false;
-	if(count($results) > 0){
+	if (count($results) > 0) {
 		$current_time = time();
-		foreach($results as $result){
+		foreach ($results as $result) {
 			$timestamp = strtotime($result['update_date']);
-			if($current_time - $timestamp > 14400){ // update if the data is older than 4h
+			if ($current_time - $timestamp > 14400) { // update if the data is older than 4h
 				$get_update = true;
 			}
 		}
-	}else{
+	} else {
 		$get_update = true; // force update on first call
 	}
 
-	if($get_update){
+	if ($get_update) {
 		$nextcloudUrl = NEXTCLOUD_PATH . $slug;
 		// Nextcloud username and password
 		$username = 'Pressespiegel';
@@ -444,25 +446,25 @@ function filterFiles($slug){
 			$xml = simplexml_load_string($output);
 			$items = $xml->xpath('//d:href');
 		}
-		if(count($results) > 0){
-			$query = 'UPDATE '.$tableName;
-			$query .= ' SET items = \''.json_encode($items).'\'';
-			$query .= ', update_date = \''.date('Y-m-d H:i:s').'\'';
-			$query .= ' WHERE slug = \''.$slug.'\'';
-		}else{
-			$query = 'INSERT INTO '.$tableName;
-			$query .= ' SET items = \''.json_encode($items).'\'';
-			$query .= ', update_date = \''.date('Y-m-d H:i:s').'\'';
-			$query .= ', slug = \''.$slug.'\'';
+		if (count($results) > 0) {
+			$query = 'UPDATE ' . $tableName;
+			$query .= ' SET items = \'' . json_encode($items) . '\'';
+			$query .= ', update_date = \'' . date('Y-m-d H:i:s') . '\'';
+			$query .= ' WHERE slug = \'' . $slug . '\'';
+		} else {
+			$query = 'INSERT INTO ' . $tableName;
+			$query .= ' SET items = \'' . json_encode($items) . '\'';
+			$query .= ', update_date = \'' . date('Y-m-d H:i:s') . '\'';
+			$query .= ', slug = \'' . $slug . '\'';
 		}
 		$wpdb->query($query);
-	}else{
-		$items = json_decode($results[0]['items'],true);
+	} else {
+		$items = json_decode($results[0]['items'], true);
 	}
 
 	$temp_items = $items;
 	$items = [];
-	foreach($temp_items as $item){
+	foreach ($temp_items as $item) {
 		$items[] = $item[0];
 	}
 
@@ -481,10 +483,10 @@ function load_more_press_reviews()
 {
 	$slug = slugGenerator($_POST['year'], $_POST['month']);
 	$items = filterFiles($slug);
-	if(count($items) > 0){
+	if (count($items) > 0) {
 		foreach ($items as $item) {
 			if (stripos($item, ".pdf") !== false) {
-		?>
+?>
 				<li>
 					<span class="pr-name"><?php echo urldecode(basename((string) $item)); ?></span>
 					<span class="pr-links">
@@ -492,11 +494,11 @@ function load_more_press_reviews()
 						<a href="<?= site_url('/pressespiegel'); ?>?file=<?= NEXTCLOUD_PATH . $slug . basename((string) $item); ?>&v1=<?= basename((string) $item); ?>" target="_blank">HERUNTERLADEN</a>
 					</span>
 				</li>
-		<?php
+	<?php
 
 			}
 		}
-	}else{
+	} else {
 		echo '<div class="text no-press-reviews"><p>Für diesen Monat wurden noch keine Pressespiegel erstellt.</p></div>';
 	}
 	wp_die();
@@ -550,16 +552,16 @@ function shortcode_to_view_press_review_fn($id)
 		$month = date("m");
 		$items = [];
 		$counter = 0; // try last 4 months
-		while(count($items) < $count && $counter < 4){
+		while (count($items) < $count && $counter < 4) {
 			$slug = slugGenerator($year, $month . "-" . $year);
 			$items = array_merge($items, filterFiles($slug));
-			if(count($items) >= $count){
+			if (count($items) >= $count) {
 				break;
 			}
-			if($month == 1){
+			if ($month == 1) {
 				$month = 12;
-				$year = $year-1;
-			}else{
+				$year = $year - 1;
+			} else {
 				$month = $month - 1;
 			}
 			$counter++;
@@ -613,4 +615,3 @@ function adjustColorLightenDarken($color_code,$percentage_adjuster = 0) {
     }
 }
 */
-

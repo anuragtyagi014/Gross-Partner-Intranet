@@ -21,4 +21,5 @@ get_website_contents('single-post');
 get_template_part('template-parts/partials/related-news');
 echo '</div>';
 
+
 get_footer();
